@@ -1,0 +1,39 @@
+#container{
+	margin : 0 auto;
+	width: 98%;
+	max-width: 800px;
+}
+
+/* NAV */
+
+.example-nav{
+	position: fixed;
+	z-index: 10;
+	width: 230px;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	padding-top: 54px;
+	background: #2D353C none repeat scroll 0% 0%;
+}
+
+.category-id{
+	cursor: pointer;
+}
+
+.list-within-category{
+	display: block;
+	max-height: 0;
+	overflow: hidden;
+}
+
+textarea{
+	width : 100%;
+	height : auto;
+}
+
+/* END nav */
+
+#iframe{
+	display: inline-block;
+}

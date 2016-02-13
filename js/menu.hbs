@@ -1,0 +1,8 @@
+<li>
+    <span class="category-id" data-category="{{category}}"> {{category}} </span>
+    <ul class="list-within-category" data-category="{{category}}">
+	{{#each files as |file| }}
+	    <li><a class="example-link" href="{{file.file}}" data-slug="{{file.slug}}">{{file.title}}</a></li>
+	{{/each}}
+	</ul>
+</li>

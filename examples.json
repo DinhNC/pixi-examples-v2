@@ -1,0 +1,29 @@
+{
+    "examples": [
+        {
+            "category": "basics",
+            "files": [
+                {
+                    "title": "Basic",
+                    "file": "examples/basics/basic.html",
+                    "slug": "basic"
+                },
+                {
+                    "title": "Container",
+                    "file": "examples/basics/container.html",
+                    "slug": "container"
+                }
+            ]
+        },
+        {
+            "category": "notbasic",
+            "files": [
+                {
+                    "title": "Click on Sprite",
+                    "file": "examples/notbasic/click.html",
+                    "slug": "click-on-sprite"
+                }
+            ]
+        }
+    ]
+}

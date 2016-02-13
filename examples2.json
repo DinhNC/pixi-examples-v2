@@ -1,0 +1,17 @@
+{
+    "examples": [
+        {
+            "category": "basics",
+            "files": [
+                "basics/basic.html",
+                "basics/container.html"
+            ]
+        },
+        {
+            "category": "notbasic",
+            "files": [
+                "notbasic/click.html"
+            ]
+        }
+    ]
+}
