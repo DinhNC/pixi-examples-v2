@@ -17,31 +17,36 @@ export default class ExampleList {
 
 		if(this.shown)
 		{
-
-			console.log('show')
-			TweenLite.to(this.element, 3,
+			var rect = this.element.getBoundingClientRect();
+			console.log('show',rect.height)
+			TweenLite.to(this.element, 1.5,
 			{	css:{
-					backgroundColor:"#FF0000", 
-					maxHeight : "100px"
-				}, 
+					maxHeight : "160px"
+				},
 				ease:Expo.easeOut
 			});
 		}
 		else{
 			this.hide();
 		}
-		
+
 	}
 
 	hide(){
+
+		console.log('hide');
+
+		this.shown = false;
+
+
 		TweenLite.to(this.element, 1,
-			{	css:{
-					backgroundColor:"transparent", 
-					maxHeight : "0"
-				}, 
-				ease:Expo.easeOut
-			});
+		{	css:{
+				backgroundColor:"transparent",
+				maxHeight : "0"
+			},
+			ease:Expo.easeOut
+		});
 
 	}
-	
+
 }

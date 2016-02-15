@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
 #container{
 	margin : 0 auto;
 	width: 98%;
@@ -17,9 +19,42 @@
 	background: #2D353C none repeat scroll 0% 0%;
 }
 
+.example-nav ul:first-child{
+	margin-left :0;
+	padding-left: 0;
+}
+
+
+
+.category{
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	display: block;
+	line-height: 50px;
+	min-height: 50px;
+	text-transform: capitalize;
+	font-family: 'Open Sans';
+	font-weight: 600;
+	color: #888;
+}
+
 .category-id{
 	cursor: pointer;
+	text-align: center;
+	display: block;
 }
+
+.example-link{
+	color : white;
+	text-decoration: none;
+}
+
+.example-link:visited{
+	color : white;
+	text-decoration: none;
+}
+
+
 
 .list-within-category{
 	display: block;
@@ -36,4 +71,6 @@ textarea{
 
 #iframe{
 	display: inline-block;
+	outline: none;
+	overflow: hidden;
 }

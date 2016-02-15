@@ -6,7 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sprite</title>
+        <title>Sprite Anchor</title>
         <style type="text/css">
             body,html{
                 margin : 0;
@@ -29,22 +29,36 @@
             var texture = PIXI.Texture.fromImage('../_assets/bunny.png');
 
             // create a new Sprite using the texture
-            var bunny = new PIXI.Sprite(texture);
+            var bunnyLeft = new PIXI.Sprite(texture);
 
             // move the sprite to the center of the screen
-            bunny.position.x = 200;
-            bunny.position.y = 150;
+            bunnyLeft.position.x = 200;
+            bunnyLeft.position.y = 150;
 
-            // add it to your scene
-            stage.addChild(bunny);
+            // create another one and change its anchor point
+            var bunnyCenter = new PIXI.Sprite(texture);
+
+            // move the sprite
+            bunnyCenter.position.x = 200;
+            bunnyCenter.position.y = 230;
+
+            // center the sprite's anchor point
+            bunnyCenter.anchor.x = 0.5;
+            bunnyCenter.anchor.y = 0.5;
+
+            // now add both sprites to the scene and see how they differ
+            stage.addChild(bunnyLeft);
+            stage.addChild(bunnyCenter);
 
             // start animating
             animate();
+
             function animate() {
                 requestAnimationFrame(animate);
 
-                // just for fun, let's rotate mr rabbit a little
-                bunny.rotation += 0.1;
+                // rotate both sprites and see the effect of the anchor
+                bunnyLeft.rotation += 0.08;
+                bunnyCenter.rotation += 0.08;
 
                 // render the container
                 renderer.render(stage);

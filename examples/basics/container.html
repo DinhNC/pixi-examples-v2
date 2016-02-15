@@ -7,17 +7,24 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Container</title>
+        <style type="text/css">
+            body,html{
+                margin : 0;
+                padding: 0;
+            }
+        </style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/3.0.9/pixi.min.js"></script>
     </head>
 
     <body>
 
-        <script>
+        <script class="example-code">
             var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x1099bb});
             document.body.appendChild(renderer.view);
 
             // create the root of the scene graph
             var stage = new PIXI.Container();
+            var sprites = [];
 
             var container = new PIXI.Container();
 

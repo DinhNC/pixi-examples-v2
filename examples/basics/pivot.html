@@ -6,7 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Click on Sprite</title>
+        <title>Sprite/Container Pivot</title>
         <style type="text/css">
             body,html{
                 margin : 0;
@@ -24,23 +24,46 @@
 
             // create the root of the scene graph
             var stage = new PIXI.Container();
+            var sprites = [];
 
-            var sprite = PIXI.Sprite.fromImage('../_assets/bunny.png');
+            var containerNoPivot = new PIXI.Container();
 
-            sprite.position.set(230,264);
-            sprite.anchor.x = 0.5;
-            sprite.anchor.y = 0.5;
-            sprite.interactive = true;
-            sprite.on('mousedown', onDown);
-            sprite.on('touchstart', onDown);
+            stage.addChild(containerNoPivot);
 
-            stage.addChild(sprite);
+            for (var j = 0; j < 5; j++) {
 
-            function onDown (eventData) {
+                for (var i = 0; i < 5; i++) {
+                    var bunny = PIXI.Sprite.fromImage('../_assets/bunny.png');
+                    bunny.x = 40 * i;
+                    bunny.y = 40 * j;
+                    container.addChild(bunny);
+                };
+            };
 
-                sprite.scale.x += 0.3;
-                sprite.scale.y += 0.3;
-            }
+            containerNoPivot.x = 100;
+            containerNoPivot.y = 60;
+
+			var containerPivot = new PIXI.Container();
+
+			stage.addChild(containerPivot);
+
+			for (var j = 0; j < 5; j++) {
+
+				for (var i = 0; i < 5; i++) {
+					var bunny = PIXI.Sprite.fromImage('../_assets/bunny.png');
+					bunny.x = 40 * i;
+					bunny.y = 40 * j;
+					container.addChild(bunny);
+				};
+			};
+
+			containerPivot.x = 100;
+			containerPivot.y = 260;
+
+			// both contains have the same position
+			// but we shift the pivot point of the second
+			containerPivot.pivot.x = 200;
+
             // start animating
             animate();
 

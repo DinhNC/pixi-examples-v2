@@ -4,14 +4,24 @@
             "category": "basics",
             "files": [
                 {
-                    "title": "Basic",
+                    "title": "Sprite Anchor",
+                    "file": "examples/basics/anchor.html",
+                    "slug": "sprite-anchor"
+                },
+                {
+                    "title": "Sprite",
                     "file": "examples/basics/basic.html",
-                    "slug": "basic"
+                    "slug": "sprite"
                 },
                 {
                     "title": "Container",
                     "file": "examples/basics/container.html",
                     "slug": "container"
+                },
+                {
+                    "title": "Sprite/Container Pivot",
+                    "file": "examples/basics/pivot.html",
+                    "slug": "spritecontainer-pivot"
                 }
             ]
         },

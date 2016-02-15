@@ -1,11 +1,11 @@
 import 'fetch';
 
 import Handlebars 	from 'handlebars';
-import Prism 		from './prism'
+import hljs 		from './highlight.pack';
 import ExampleList 	from './ExampleList';
 
-
 import source from './menu.hbs!text';
+
 
 fetch('./examples.json')
 	.then(response => response.json())
@@ -48,10 +48,10 @@ fetch('./examples.json')
 	  	var links = Array.from( document.querySelectorAll('.example-link') );
 
 	  	for (var i = 0; i < links.length; i++) {
-	  		links[i].addEventListener('click',showExample)
+	  		links[i].addEventListener('click',findExample)
 	  	};
 
-	  	function showExample (evt) {
+	  	function findExample (evt) {
 	  		evt.preventDefault();
 	  		evt.stopPropagation();
 	  		var link = evt.target;
@@ -60,23 +60,12 @@ fetch('./examples.json')
 	  			return item.slug === link.dataset.slug;
 	  		});
 
-	  		var file = filtered[0];
+	  		var fileObj = filtered[0];
 
-	  		if(file)
+	  		if(fileObj)
 	  		{
-	  			iframe.src = file.file;
 
-	  			var textarea = document.querySelector('code');
-	  			var code = "";
-	  			code += " var sprite = new PIXI.Sprite() ";
-	  			textarea.innerHTML = code;
-
-	  			setTimeout(function  () {
-		  			Prism.highlightAll(true,function(){
-		  				alert('h')
-		  			});
-	  			},50)
-	  			
+	  			showExample(fileObj);
 
 	  		}
 	  		else{
@@ -86,9 +75,44 @@ fetch('./examples.json')
 	  		return false;
 	  	}
 
+	  	function showExample(fileObj) {
+	  		iframe.src = fileObj.file;
+
+	  		fetch(fileObj.file)
+	  			.then((response) => {
+	  				return response.text();
+	  			})
+	  			.then(function (text) {
+
+		  			var textarea = document.querySelector('pre code');
+
+			  		var parser = new DOMParser();
+					var doc = parser.parseFromString(text, "text/html");
+
+					var code = doc.querySelector('script.example-code').innerHTML;
+
+					//console.log('code ',code)
+
+			  		textarea.innerHTML = code;
+
+			  		var hOne = document.querySelector('h1');
+			  		hOne.innerHTML = fileObj.title;
+
+
+			  		setTimeout(function () {
+
+			  			console.log('high')
+				  		hljs.initHighlighting();
+
+			  		},50);
+	  			})
+	  	}
+
 	  	function clickedTitle (evt) {
 
 	  		var curr = evt.target;
+
+	  		evt.stopPropagation();
 
 
 	  		for (var i = 0; i < lists.length; i++) {
@@ -101,8 +125,6 @@ fetch('./examples.json')
 	  		});
 
 	  		ul[0].toggleVisibility();
-
-
 
 
 	  	}
