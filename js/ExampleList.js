@@ -1,50 +1,61 @@
 import TweenMax from './TweenMax.min'
 
-
 export default class ExampleList {
 
 	constructor(element){
 
 		this.element = element;
-
-		this.shown = false;
 		this.category = element.dataset.category;
+		this.originalHeight = element.getBoundingClientRect().height;
+
+		this.element.style.display = "none";
+		this.element.style.height = "0px"
+		this.visible = false;
+		this.animating = false;
 	}
 
 	toggleVisibility(){
 
-		this.shown = !this.shown;
+		if(this.animating) return;
 
-		if(this.shown)
+		if(!this.visible)
 		{
-			var rect = this.element.getBoundingClientRect();
-			console.log('show',rect.height)
-			TweenLite.to(this.element, 1.5,
-			{	css:{
-					maxHeight : "160px"
-				},
-				ease:Expo.easeOut
-			});
+			this.show();
 		}
 		else{
 			this.hide();
 		}
+	}
 
+	show(){
+		console.log('show');
+
+		this.element.style.display = "block";
+
+		TweenLite.to(this.element, 0.5,
+		{	css:{
+				height : this.originalHeight+"px"
+			},
+			ease:Expo.easeOut,
+			onComplete : ()=>{
+				this.visible = true;
+				this.animating = false;
+			}
+		});
 	}
 
 	hide(){
 
-		console.log('hide');
-
-		this.shown = false;
-
-
-		TweenLite.to(this.element, 1,
+		TweenLite.to(this.element, 0.5,
 		{	css:{
-				backgroundColor:"transparent",
-				maxHeight : "0"
+				height : 0
 			},
-			ease:Expo.easeOut
+			ease:Expo.easeOut,
+			onComplete : ()=>{
+				this.visible = false;
+				this.animating = false;
+				this.element.style.display = "none";
+			}
 		});
 
 	}

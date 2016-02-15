@@ -58,7 +58,6 @@
 
 .list-within-category{
 	display: block;
-	max-height: 0;
 	overflow: hidden;
 }
 
