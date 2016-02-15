@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Rectangle</title>
+        <style type="text/css">
+            body,html{
+                margin : 0;
+                padding: 0;
+            }
+        </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/3.0.9/pixi.min.js"></script>
+    </head>
+
+    <body>
+
+        <script class="example-code">
+            var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x1099bb});
+            document.body.appendChild(renderer.view);
+
+            // create the root of the scene graph
+            var stage = new PIXI.Container();
+			var count = 0;
+
+
+            // create a new Graphics object
+            var graphics = new PIXI.Graphics();
+
+            // center the graphics
+            graphics.x = 200;
+            graphics.y = 150;
+
+			// set a fill color and an opacity
+			graphics.beginFill(0xfff012,1);
+			// draw a rectangle using the arguments as x, y, width, height
+			graphics.drawRect(0,0,50,50);
+
+			// center the pivot point
+			graphics.pivot.x = 25;
+			graphics.pivot.y = 25;
+
+            // add it to your scene
+            stage.addChild(graphics);
+
+            // start animating
+            animate();
+            function animate() {
+
+                requestAnimationFrame(animate);
+
+				count += 0.08;
+                // more fun when it moves
+                graphics.rotation = Math.sin(count) * 0.2;
+
+                // render the container
+                renderer.render(stage);
+            }
+        </script>
+    </body>
+
+</html>

@@ -36,7 +36,7 @@
                     var bunny = PIXI.Sprite.fromImage('../_assets/bunny.png');
                     bunny.x = 40 * i;
                     bunny.y = 40 * j;
-                    container.addChild(bunny);
+                    containerNoPivot.addChild(bunny);
                 };
             };
 
@@ -53,16 +53,16 @@
 					var bunny = PIXI.Sprite.fromImage('../_assets/bunny.png');
 					bunny.x = 40 * i;
 					bunny.y = 40 * j;
-					container.addChild(bunny);
+					containerPivot.addChild(bunny);
 				};
 			};
 
 			containerPivot.x = 100;
-			containerPivot.y = 260;
+			containerPivot.y = 280;
 
 			// both contains have the same position
 			// but we shift the pivot point of the second
-			containerPivot.pivot.x = 200;
+			containerPivot.pivot.x = -200;
 
             // start animating
             animate();

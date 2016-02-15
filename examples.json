@@ -26,6 +26,21 @@
             ]
         },
         {
+            "category": "graphics",
+            "files": [
+                {
+                    "title": "Circle",
+                    "file": "examples/graphics/Circle.html",
+                    "slug": "circle"
+                },
+                {
+                    "title": "Rectangle",
+                    "file": "examples/graphics/rectangle.html",
+                    "slug": "rectangle"
+                }
+            ]
+        },
+        {
             "category": "notbasic",
             "files": [
                 {

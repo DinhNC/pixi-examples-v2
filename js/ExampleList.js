@@ -8,6 +8,7 @@ export default class ExampleList {
 		this.category = element.dataset.category;
 		this.originalHeight = element.getBoundingClientRect().height;
 
+		// hide the element on creation
 		this.element.style.display = "none";
 		this.element.style.height = "0px"
 		this.visible = false;
