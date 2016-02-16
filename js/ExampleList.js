@@ -1,4 +1,4 @@
-import TweenMax from './TweenMax.min'
+import TweenMax from './vendor/TweenMax.min'
 
 export default class ExampleList {
 

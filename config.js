@@ -21,6 +21,7 @@ System.config({
     "core-js": "npm:core-js@0.9.18",
     "fetch": "npm:whatwg-fetch@0.7.0",
     "handlebars": "github:components/handlebars.js@3.0.0",
+    "signals": "npm:signals@1.0.0",
     "text": "github:systemjs/plugin-text@0.0.2",
     "whatwg-fetch": "npm:whatwg-fetch@0.7.0",
     "github:jspm/nodelibs-assert@0.1.0": {
