@@ -16,6 +16,7 @@ import Menu 		from './Menu';
 
 var model = new ExampleModel();
 var menu;
+var githubUrl = 'https://github.com/pixijs/pixi-examples-v2/tree/master/';
 
 model.init(createMenu);
 
@@ -27,57 +28,58 @@ function createMenu() {
 }
 
 
-	function findExample (evt) {
-		evt.preventDefault();
-		evt.stopPropagation();
-		var link = evt.target;
+function findExample (evt) {
+	evt.preventDefault();
+	evt.stopPropagation();
+	var link = evt.target;
 
-		var filtered = model.files.filter( (item) => {
-			return item.slug === link.dataset.slug;
-		});
+	var filtered = model.files.filter( (item) => {
+		return item.slug === link.dataset.slug;
+	});
 
-		var fileObj = filtered[0];
+	var fileObj = filtered[0];
 
-		if(fileObj)
-		{
-			showExample(fileObj);
-		}
-		else{
-			alert('problem');
-		}
-
-		return false;
+	if(fileObj)
+	{
+		showExample(fileObj);
+	}
+	else{
+		alert('problem');
 	}
 
-	function showExample(fileObj) {
+	return false;
+}
 
-		var iframe = document.querySelector('iframe');
-		iframe.src = fileObj.file;
+function showExample(fileObj) {
 
-		fetch(fileObj.file)
-			.then((response) => {
-				return response.text();
-			})
-			.then(function (text) {
+	var iframe = document.querySelector('iframe');
+	iframe.src = fileObj.file;
 
-				var textarea = document.querySelector('pre code');
+	fetch(fileObj.file)
+		.then((response) => {
+			return response.text();
+		})
+		.then(function (text) {
 
-				var parser = new DOMParser();
-				var doc = parser.parseFromString(text, "text/html");
+			var textarea = document.querySelector('pre code');
 
-				var code = doc.querySelector('script.example-code').innerHTML;
+			var parser = new DOMParser();
+			var doc = parser.parseFromString(text, "text/html");
 
-				textarea.innerHTML = code;
+			var code = doc.querySelector('script.example-code').innerHTML;
 
-				var hOne = document.querySelector('h1');
-				hOne.innerHTML = fileObj.title;
+			textarea.innerHTML = code;
 
+			var hOne = document.querySelector('h1');
+			hOne.innerHTML = fileObj.title;
 
-				setTimeout(function () {
+			var githubLink = document.querySelector('.view-on-github');
+			githubLink.setAttribute('href',githubUrl + fileObj.file)
 
-					console.log('high')
-					hljs.highlightBlock(textarea);
+			setTimeout(function () {
+				console.log('highlight')
+				hljs.highlightBlock(textarea);
 
-				},50);
-			})
-	}
+			},50);
+		})
+}
