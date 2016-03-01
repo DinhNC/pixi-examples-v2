@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +11,10 @@
                 margin : 0;
                 padding: 0;
             }
+			canvas{
+				display: block;
+				margin: 0 auto;
+			}
         </style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/3.0.9/pixi.min.js"></script>
     </head>
@@ -36,7 +39,7 @@
 
 			// set a fill color and an opacity
 			graphics.beginFill(0xfff012,1);
-			// draw a rectangle using the arguments as x, y, width, height
+			// draw a rectangle using the arguments as: x, y, width, height
 			graphics.drawRect(0,0,50,50);
 
 			// center the pivot point

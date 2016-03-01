@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sprite</title>
+        <title>Basic text properties</title>
         <style type="text/css">
             body,html{
                 margin : 0;
@@ -26,31 +26,33 @@
             var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x1099bb});
             document.body.appendChild(renderer.view);
 
-            // create the root of the scene graph
             var stage = new PIXI.Container();
+			var count = 0;
 
-            // create a texture from an image path
-            var texture = PIXI.Texture.fromImage('../_assets/bunny.png');
+			// create a pixi text object
+			// the text is drawn to an off-screen canvas element
+			// and then used as a texture for a pixi sprite, it consequently inherits all its properties
+            var text = new PIXI.Text('Hello pixi.js',{fill : '#555555', font : '48px Arial', align: "center"});
 
-            // create a new Sprite using the texture
-            var bunny = new PIXI.Sprite(texture);
-
-            // move the sprite to the center of the screen
-            bunny.position.x = 200;
-            bunny.position.y = 150;
+			// set the anchor of the text (remember, it's a sprite)
+			text.anchor.set(0.5);
+			text.x = 400;
+			text.y = 300;
 
             // add it to your scene
-            stage.addChild(bunny);
+            stage.addChild(text);
 
             // start animating
             animate();
             function animate() {
                 requestAnimationFrame(animate);
 
-                // just for fun, let's rotate mr rabbit a little
-                bunny.rotation += 0.1;
+				count += 0.08;
 
-                // render the container
+				// just like any display object,
+				// you can move it and rotate it
+				text.rotation = Math.sin(count) * 0.2;
+
                 renderer.render(stage);
             }
         </script>
