@@ -40,3 +40,9 @@ All you need to do is copy and paste this file to where you think your example b
 You can then come back to the browser and navigate to your file and start changing it.
 
 When you create a new example file, you need to run ``` node generate-examples.js ``` in order for it to be shown on your local version of the website.
+
+
+## How to build the project to upload it to github pages ## 
+
+Running ```jspm bundle-sfx js/main``` will compile all of the ES2015 code and all of the dependencies into a single file called build.js
+
