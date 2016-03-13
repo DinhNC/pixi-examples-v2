@@ -34,6 +34,11 @@
                     "slug": "circle"
                 },
                 {
+                    "title": "Outline",
+                    "file": "examples/graphics/outline.html",
+                    "slug": "outline"
+                },
+                {
                     "title": "Rectangle",
                     "file": "examples/graphics/rectangle.html",
                     "slug": "rectangle"
@@ -41,12 +46,47 @@
             ]
         },
         {
-            "category": "notbasic",
+            "category": "interactivity",
             "files": [
                 {
                     "title": "Click on Sprite",
-                    "file": "examples/notbasic/click.html",
+                    "file": "examples/interactivity/click.html",
                     "slug": "click-on-sprite"
+                },
+                {
+                    "title": "Mouse over/out states",
+                    "file": "examples/interactivity/mouseover-out.html",
+                    "slug": "mouse-overout-states"
+                }
+            ]
+        },
+        {
+            "category": "others",
+            "files": [
+                {
+                    "title": "Loader Progress",
+                    "file": "examples/others/loader-progress.html",
+                    "slug": "loader-progress"
+                }
+            ]
+        },
+        {
+            "category": "text",
+            "files": [
+                {
+                    "title": "Basic text properties",
+                    "file": "examples/text/basic-text-properties.html",
+                    "slug": "basic-text-properties"
+                },
+                {
+                    "title": "Simple Text",
+                    "file": "examples/text/basic-text.html",
+                    "slug": "simple-text"
+                },
+                {
+                    "title": "Complex Text",
+                    "file": "examples/text/complex-text.html",
+                    "slug": "complex-text"
                 }
             ]
         }

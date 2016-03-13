@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "npm install -g jspm",
+    "start": "jspm install",
+    "poststart": "npm install -g http-server && http-server",
+    "jspm-start": "jspm install",
+    "postjspm-start": "npm install -g http-server && http-server"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +27,7 @@
   },
   "devDependencies": {
     "html-dist": "^0.1.0",
+    "jspm": "^0.16.30",
     "uglifyjs": "^2.4.10"
   }
 }

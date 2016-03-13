@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sprite</title>
+        <title>Click on Sprite</title>
         <style type="text/css">
             body,html{
                 margin : 0;
@@ -22,38 +22,46 @@
     <body>
 
         <script class="example-code">
-			// create a renderer, detecting automatically which one to create between Canvas and WebGL
             var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x1099bb});
             document.body.appendChild(renderer.view);
 
             // create the root of the scene graph
             var stage = new PIXI.Container();
 
-            // create a texture from an image path
-            var texture = PIXI.Texture.fromImage('../_assets/bunny.png');
+            var sprite = PIXI.Sprite.fromImage('../_assets/bunny.png');
 
-            // create a new Sprite using the texture
-            var bunny = new PIXI.Sprite(texture);
+            sprite.position.set(230,264);
+            sprite.anchor.x = 0.5;
+            sprite.anchor.y = 0.5;
 
-            // move the sprite to the center of the screen
-            bunny.position.x = 200;
-            bunny.position.y = 150;
+			// set the sprite to be interactive, this is really important
+			// otherwise the sprite will not listen to interactions or dispatch any event
+            sprite.interactive = true;
 
-            // add it to your scene
-            stage.addChild(bunny);
+			// add an event listener
+            sprite.on('click', onDown);
 
+			// you can also listent to touch events
+            sprite.on('tap', onDown);
+
+            stage.addChild(sprite);
+
+			// scale the sprite up every time it is clicked/touched
+            function onDown (eventData) {
+
+                sprite.scale.x += 0.3;
+                sprite.scale.y += 0.3;
+            }
             // start animating
             animate();
+
             function animate() {
+
                 requestAnimationFrame(animate);
 
-                // just for fun, let's rotate mr rabbit a little
-                bunny.rotation += 0.1;
-
-                // render the container
+                // render the root container
                 renderer.render(stage);
             }
         </script>
     </body>
-
 </html>

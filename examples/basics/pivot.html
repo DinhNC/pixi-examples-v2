@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +11,10 @@
                 margin : 0;
                 padding: 0;
             }
+			canvas{
+				display: block;
+				margin: 0 auto;
+			}
         </style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/3.0.9/pixi.min.js"></script>
     </head>
@@ -19,12 +22,12 @@
     <body>
 
         <script class="example-code">
+			// create a renderer, detecting automatically which one to create between Canvas and WebGL
             var renderer = PIXI.autoDetectRenderer(800, 600,{backgroundColor : 0x1099bb});
             document.body.appendChild(renderer.view);
 
             // create the root of the scene graph
             var stage = new PIXI.Container();
-            var sprites = [];
 
             var containerNoPivot = new PIXI.Container();
 
@@ -60,7 +63,7 @@
 			containerPivot.x = 100;
 			containerPivot.y = 280;
 
-			// both contains have the same position
+			// both containers have the same position
 			// but we shift the pivot point of the second
 			containerPivot.pivot.x = -200;
 
