@@ -89,6 +89,16 @@
                     "slug": "complex-text"
                 }
             ]
+        },
+        {
+            "category": "textures",
+            "files": [
+                {
+                    "title": "Basic text properties",
+                    "file": "examples/textures/basic-text-properties.html",
+                    "slug": "basic-text-properties"
+                }
+            ]
         }
     ]
 }

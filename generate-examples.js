@@ -30,8 +30,12 @@ fs.readdir(examplesDir, function (err, folders) {
 			}
 		});
 
+		// first filter out non html files (.DS_Store files in particular!) 
 		// parse the <title> tag and create a title and a slug
-		files = files.map(function (file) {
+		files = files.filter(function(file){
+			return (file.file.indexOf(".html") !== -1);
+		}).map(function (file) {
+
 
 			var buff = fs.readFileSync(path.join(examplesDir,file.file),'utf8');
 			var str = buff.toString()
