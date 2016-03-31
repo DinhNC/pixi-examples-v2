@@ -8,6 +8,7 @@ export default class Menu {
 
 		this.lists = [];
         this.itemClicked = new Signal();
+		this.links = [];
 
 		var content = examples
 						.map(function(folder){
@@ -34,15 +35,22 @@ export default class Menu {
 			titles[i].addEventListener('click',this.updateMenuCategory.bind(this))
 		};
 
-		var links = Array.from( document.querySelectorAll('.example-link') );
+		this.links = Array.from( document.querySelectorAll('.example-link') );
 
-		for (var i = 0; i < links.length; i++) {
-			links[i].addEventListener('click',this.onLinkClicked.bind(this));
+		for (var i = 0; i < this.links.length; i++) {
+			this.links[i].addEventListener('click',this.onLinkClicked.bind(this));
 		};
 	}
 
     onLinkClicked (evt){
-        this.itemClicked.dispatch(evt)
+        this.itemClicked.dispatch(evt);
+
+		this.links.forEach(removeClass('example-link-active'));
+
+		var link = evt.target;
+		link.classList.add('example-link-active');
+
+		console.log(link);
     }
 
 	// changes which category is currently visible, and collapses the others
@@ -64,5 +72,11 @@ export default class Menu {
 		ul[0].toggleVisibility();
 
 
+	}
+}
+
+function removeClass(className) {
+	return function (element) {
+		element.classList.remove(className)
 	}
 }
