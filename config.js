@@ -1,7 +1,7 @@
 System.config({
   baseURL: "/",
   defaultJSExtensions: true,
-  transpiler: "babel",
+  transpiler: "latest",
   babelOptions: {
     "optional": [
       "runtime"
@@ -18,6 +18,8 @@ System.config({
     "core-js": "npm:core-js@0.9.18",
     "fetch": "npm:whatwg-fetch@0.7.0",
     "handlebars": "github:components/handlebars.js@3.0.0",
+    "latest": "npm:babel-core@5.8.35",
+    "latest-runtime": "npm:babel-runtime@5.8.35",
     "signals": "npm:signals@1.0.0",
     "text": "github:systemjs/plugin-text@0.0.2",
     "whatwg-fetch": "npm:whatwg-fetch@0.7.0",

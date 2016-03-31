@@ -20,6 +20,7 @@ var githubUrl = 'https://github.com/pixijs/pixi-examples-v2/tree/master/';
 
 model.init(createMenu);
 
+
 function createMenu() {
 
 	menu = new Menu(model.examples);

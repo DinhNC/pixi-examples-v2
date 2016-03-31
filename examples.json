@@ -26,6 +26,21 @@
             ]
         },
         {
+            "category": "filters",
+            "files": [
+                {
+                    "title": "Basic text properties",
+                    "file": "examples/filters/blur-filter copy.html",
+                    "slug": "basic-text-properties"
+                },
+                {
+                    "title": "Basic text properties",
+                    "file": "examples/filters/blur-filter.html",
+                    "slug": "basic-text-properties"
+                }
+            ]
+        },
+        {
             "category": "graphics",
             "files": [
                 {
@@ -94,9 +109,39 @@
             "category": "textures",
             "files": [
                 {
-                    "title": "Basic text properties",
-                    "file": "examples/textures/basic-text-properties.html",
-                    "slug": "basic-text-properties"
+                    "title": "Texture from Canvas",
+                    "file": "examples/textures/basic-texture-from-canvas.html",
+                    "slug": "texture-from-canvas"
+                },
+                {
+                    "title": "Texture from Image",
+                    "file": "examples/textures/basic-texture-from-image.html",
+                    "slug": "texture-from-image"
+                },
+                {
+                    "title": "Texture from spritesheet",
+                    "file": "examples/textures/basic-texture-from-sprite-sheet.html",
+                    "slug": "texture-from-spritesheet"
+                },
+                {
+                    "title": "Texture from video",
+                    "file": "examples/textures/basic-texture-from-video.html",
+                    "slug": "texture-from-video"
+                },
+                {
+                    "title": "Generate texture",
+                    "file": "examples/textures/generate-texture.html",
+                    "slug": "generate-texture"
+                },
+                {
+                    "title": "render texture resolution",
+                    "file": "examples/textures/render-texture-resolution.html",
+                    "slug": "render-texture-resolution"
+                },
+                {
+                    "title": "render texture",
+                    "file": "examples/textures/render-texture.html",
+                    "slug": "render-texture"
                 }
             ]
         }
