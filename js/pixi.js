@@ -230,6 +230,12 @@ jQuery(document).ready(function($) {
 	};
 
 	bpc.generateIFrameContent = function() {
+		// Remove all iFrames and content
+		var iframes = document.querySelectorAll('iframe');
+		for (var i = 0; i < iframes.length; i++) {
+			iframes[i].parentNode.removeChild(iframes[i]);
+		}
+		$('#example').html('<iframe id="preview" src="blank.html"></iframe>');
 		// Generate HTML and insert into iFrame
 		var js = bpc.jsSource;
 		var html = '<!DOCTYPE html><html><head><style>body,html{margin:0px;height:100%;overflow:hidden;}canvas{width:100%;height:100%;}</style></head><body>';
@@ -237,7 +243,7 @@ jQuery(document).ready(function($) {
 		html += '<script src="https://cdn.rawgit.com/pixijs/pixi.js/'+bpc.version+'/bin/pixi.js"></script>';
 
 		var plugins = bpc.plugins === '' ? [] : bpc.plugins.split(',');
-		for (var i=0; i < plugins.length; i++) {
+		for (i=0; i < plugins.length; i++) {
 			html += '<script src="required/plugins/'+plugins[0]+'.js"></script>';
 		}
 
