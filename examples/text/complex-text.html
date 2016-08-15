@@ -30,18 +30,19 @@
 
 			// the text is drawn to an off-screen canvas element
 			// and supports the same customisation options
-			var textOptions = {
+			var style = new PIXI.TextStyle({
 				fill 			: '#555555',	// text color
-				font 			: '56px Arial',	// font
-				stroke 			: '#dd2222',	// outline color
+				fontSize		: 56,			// font size in pixels
+				fontFamily		: 'Arial',		// font family name
+				stroke 			: 0xdd2222,		// outline color
 				strokeThickness : 3,			// outline thickness
 				align 			: 'center',		// alignment
 				wordWrap 		: true,			// activate word wrapping
 				wordWrapWidth 	: 800,			// set the width to wrap around
 				dropShadow		: true,			// activate drop shadow
-				dropShadowColor : '#000000',	// shadow color
+				dropShadowColor	: 0x000000,		// shadow color
 				dropShadowAngle	: 1				// shadow angle (in radians)
-			}
+			})
 
 			// create a pixi text object
             var text = new PIXI.Text('I am a really complex piece of text',textOptions);

@@ -32,7 +32,11 @@
 			// create a pixi text object
 			// the text is drawn to an off-screen canvas element
 			// and supports the same customisation options
-            var text = new PIXI.Text('Hello pixi.js',{fill : '#555555', font : '48px Arial'});
+            var text = new PIXI.Text('Hello pixi.js', {
+                fill : '#555555',
+                fontSize: 48,
+                fontFamily: 'Arial'
+            });
 
             // add it to your scene
             stage.addChild(text);

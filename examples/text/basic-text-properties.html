@@ -32,7 +32,12 @@
 			// create a pixi text object
 			// the text is drawn to an off-screen canvas element
 			// and then used as a texture for a pixi sprite, it consequently inherits all its properties
-            var text = new PIXI.Text('Hello pixi.js',{fill : '#555555', font : '48px Arial', align: "center"});
+            var text = new PIXI.Text('Hello pixi.js', {
+				fill : '#555555',
+				fontSize : 48,
+				fontFamily: 'Arial',
+				align: 'center'
+			});
 
 			// set the anchor of the text (remember, it's a sprite)
 			text.anchor.set(0.5);
